@@ -16,10 +16,10 @@ it('brute force finds pair [1, 3] => [2,7] in [1, 2, 4, 7, 9] when target = 9', 
   expect(sum).toEqual(target)
 })
 
-// it('optimized finds pair [1, 3] => [2,7] in [1, 2, 4, 7, 9] when target = 9', () => {
-//   const target = 9
-//   const arr = [1,2,4,7,9]
-//   const solution = twoSum(target, arr)
-//   const sum = getSum(solution, arr)
-//   expect(sum).toEqual(target)
-// })
+it('optimized finds pair [1, 3] => [2,7] in [1, 2, 4, 7, 9] when target = 9', () => {
+  const target = 9
+  const arr = [1,2,4,7,9]
+  const solution = twoSum(target, arr)
+  const sum = getSum(solution, arr)
+  expect(sum).toEqual(target)
+})

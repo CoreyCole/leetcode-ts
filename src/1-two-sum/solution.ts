@@ -1,4 +1,4 @@
-import { } from 'goog.array'
+import { arrayEquals } from '../lib/shared'
 
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -8,7 +8,8 @@ import { } from 'goog.array'
  * @return an array of size two with the array indices of the pair of number
  */
 
-const twoSumBruteForce = (target, numbers: number[]) => {
+// O(n^2)
+const twoSumBruteForce = (target: number, numbers: number[]) => {
   for (let i = 0; i < numbers.length; i++) {
     for (let j = 0; j < numbers.length; j++) {
       if (numbers[i] + numbers[j] === target) {
@@ -18,15 +19,13 @@ const twoSumBruteForce = (target, numbers: number[]) => {
   }
 }
 
+// O(n log n)
 const twoSum = (target: number, numbers: number[]): number[] => {
-  console.log(numbers)
   const sortedNumbers = numbers.sort()
 
   let currentIndexPair = [0, sortedNumbers.length - 1]
-  console.log(currentIndexPair)
   while (!isSolution(target, currentIndexPair, numbers)) {
     currentIndexPair = nextIndexPair(target, currentIndexPair, numbers)
-    console.log(currentIndexPair)
   }
   return currentIndexPair
 }
@@ -37,10 +36,10 @@ const nextIndexPair = (target: number, prevIndexPair: number[], numbers: number[
   return prevIndexPair.map((value, index, arr) => pairChange[index] + arr[index])
 }
 
-const isSolution = (target, currentIndexPair, numbers): boolean =>
+const isSolution = (target: number, currentIndexPair: number[], numbers: number[]): boolean =>
   getSum(currentIndexPair, numbers) === target
 
-const getSum = (currentIndexPair, numbers): number => {
+const getSum = (currentIndexPair: number[], numbers: number[]): number => {
   const bottomIndex = currentIndexPair[0]
   const topIndex = currentIndexPair[1]
   return numbers[bottomIndex] + numbers[topIndex]
