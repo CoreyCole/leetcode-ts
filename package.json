@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/jest": "21.1.4",
+    "closure-library.ts": "1.0.0",
     "jest": "21.2.1",
     "nodemon": "1.12.1",
     "ts-jest": "21.1.3",

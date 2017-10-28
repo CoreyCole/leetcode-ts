@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "sourceMap": true
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "noImplicitAny": true
   }
 }
