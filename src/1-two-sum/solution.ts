@@ -17,6 +17,7 @@ const twoSumBruteForce = (target: number, numbers: number[]) => {
       }
     }
   }
+  return [-1,-1]
 }
 
 // O(n log n)
