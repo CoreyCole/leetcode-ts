@@ -4,6 +4,9 @@
     "module": "commonjs",
     "sourceMap": true,
     "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "rootDir": ".",
     "outDir": "build"
   },

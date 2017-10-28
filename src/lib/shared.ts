@@ -1,4 +1,4 @@
-const negative = (num: number): boolean => num < 0
+const isNegative = (num: number): boolean => num < 0
 
 const isEven = (num: number) => num % 2 === 0
 
@@ -17,4 +17,9 @@ const arrayEquals = (arr1: any[], arr2: any[]) => {
   return true
 }
 
-export { negative, isEven, isOdd, arrayEquals }
+export {
+  isNegative,
+  isEven,
+  isOdd,
+  arrayEquals
+}

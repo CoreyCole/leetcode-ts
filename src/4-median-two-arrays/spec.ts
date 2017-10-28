@@ -2,15 +2,15 @@ import { medianTwoArrays } from './solution'
 
 describe('4) medianTwoArrays', () => {
   it('should return median of [1,3] and [2] => 2.0', () => {
-    const n1 = [1, 3]
+    const n1 = [1,3]
     const n2 = [2]
     const solution = 2.0
     expect(medianTwoArrays(n1,n2)).toBe(solution)
   })
 
   it('should return median of [1,2] and [3,4] => 2.5', () => {
-    const n1 = [1, 2]
-    const n2 = [3, 4]
+    const n1 = [1,2]
+    const n2 = [3,4]
     const solution = 2.5
     expect(medianTwoArrays(n1,n2)).toBe(solution)
   })

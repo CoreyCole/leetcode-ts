@@ -1,5 +1,3 @@
-import { arrayEquals } from '../lib/shared'
-
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -34,7 +32,7 @@ const twoSum = (target: number, numbers: number[]): number[] => {
 const nextIndexPair = (target: number, prevIndexPair: number[], numbers: number[]): number[] => {
   const currentSum = getSum(prevIndexPair, numbers)
   const pairChange = currentSum > target ? [0,-1] : [1,0]
-  return pairChange.map((value, index) => prevIndexPair[index] + pairChange[index])
+  return pairChange.map((value, index) => value + prevIndexPair[index])
 }
 
 const isSolution = (target: number, currentIndexPair: number[], numbers: number[]): boolean =>
@@ -45,8 +43,6 @@ const getSum = (currentIndexPair: number[], numbers: number[]): number => {
   const topIndex = currentIndexPair[1]
   return numbers[bottomIndex] + numbers[topIndex]
 }
-
-const tooBig = (num: number, target: number): boolean => num > target
 
 export { twoSumBruteForce, twoSum, getSum }
 
