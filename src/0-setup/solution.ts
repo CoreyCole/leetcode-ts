@@ -4,11 +4,11 @@ const sum = (a: number, b: number) => {
   const q = new Queue<number>()
   q.enqueue(a)
   q.enqueue(b)
-  let sum: number = 0
+  let result = 0
   while (!q.isEmpty()) {
-    sum += q.dequeue()
+    result += q.dequeue()
   }
-  return sum
+  return result
 }
 
 export { sum }
