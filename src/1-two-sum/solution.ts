@@ -7,7 +7,7 @@
  */
 
 // O(n^2)
-const twoSumBruteForce = (target: number, numbers: number[]) => {
+function twoSumBruteForce (target: number, numbers: number[]) {
   for (let i = 0; i < numbers.length; i++) {
     for (let j = 0; j < numbers.length; j++) {
       if (numbers[i] + numbers[j] === target) {
@@ -19,7 +19,7 @@ const twoSumBruteForce = (target: number, numbers: number[]) => {
 }
 
 // O(n log n)
-const twoSum = (target: number, numbers: number[]): number[] => {
+function twoSum (target: number, numbers: number[]): number[] {
   const sortedNumbers = numbers.sort()
 
   let currentIndexPair = [0, sortedNumbers.length - 1]

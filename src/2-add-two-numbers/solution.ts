@@ -9,7 +9,7 @@ import { LinkedList } from 'typescript-collections'
  * Output: 7 -> 0 -> 8
  * 342 + 465 = 807
  */
-const addTwo = (l1: LinkedList<number>, l2: LinkedList<number>): LinkedList<number> => {
+function addTwo (l1: LinkedList<number>, l2: LinkedList<number>): LinkedList<number> {
   const result = new LinkedList<number>()
   const l = l1.size() > l2.size() ? l1.size() : l2.size()
 

@@ -16,7 +16,7 @@ import { isOdd } from '../lib/shared'
  * The median is (2 + 3)/2 = 2.5
  */
 // O(n) solution, but O(log (m+n)) is possible where m and n are the lengths of the two arrays
-const medianTwoArrays = (arr1: number[], arr2: number[]): number => {
+function medianTwoArrays (arr1: number[], arr2: number[]): number {
   const totalLength = arr1.length + arr2.length
   let currentIndexPair = [0, arr1.length]                                         // we'll be popping off the smallest value from each array
                                                                                   //  so we can think of our traversal like a combined sorted array
