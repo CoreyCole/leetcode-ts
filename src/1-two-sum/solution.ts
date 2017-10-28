@@ -33,7 +33,7 @@ const twoSum = (target: number, numbers: number[]): number[] => {
 const nextIndexPair = (target: number, prevIndexPair: number[], numbers: number[]): number[] => {
   const currentSum = getSum(prevIndexPair, numbers)
   const pairChange = currentSum > target ? [0,-1] : [1,0]
-  return prevIndexPair.map((value, index, arr) => pairChange[index] + arr[index])
+  return pairChange.map((value, index) => prevIndexPair[index] + pairChange[index])
 }
 
 const isSolution = (target: number, currentIndexPair: number[], numbers: number[]): boolean =>
