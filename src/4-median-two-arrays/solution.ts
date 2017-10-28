@@ -30,7 +30,7 @@ const medianTwoArrays = (arr1: number[], arr2: number[]): number => {
     .reduce((prev, curr) => prev + curr, 0) / 2                                   // sum the two values and divide by two for average
 }
 
-const nextIndexPair = (currentIndexPair: number[], arr1: number[], arr2: number[]): number[] => {
+function nextIndexPair (currentIndexPair: number[], arr1: number[], arr2: number[]): number[] {
   const index1 = currentIndexPair[0]
   const index2 = currentIndexPair[1]
   const val1 = getValue(index1, arr1, arr2)
@@ -44,7 +44,7 @@ const nextIndexPair = (currentIndexPair: number[], arr1: number[], arr2: number[
   }
 }
 
-const getValue = (i: number, arr1: number[], arr2: number[]): number => {
+function getValue (i: number, arr1: number[], arr2: number[]): number {
   if (i < arr1.length) {
     return arr1[i]
   } else {

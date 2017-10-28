@@ -23,11 +23,11 @@ const addTwo = (l1: LinkedList<number>, l2: LinkedList<number>): LinkedList<numb
   return result
 }
 
-const getSum = (i: number, l1: LinkedList<number>, l2: LinkedList<number>) => {
+function getSum (i: number, l1: LinkedList<number>, l2: LinkedList<number>) {
   return (l1.elementAtIndex(i) || 0) + (l2.elementAtIndex(i) || 0)
 }
 
-const getCarryOver = (sum: number) => {
+function getCarryOver (sum: number) {
   if (sum === 10) {
     return 1
   } else if (sum > 10) {

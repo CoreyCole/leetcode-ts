@@ -29,16 +29,17 @@ const twoSum = (target: number, numbers: number[]): number[] => {
   return currentIndexPair
 }
 
-const nextIndexPair = (target: number, prevIndexPair: number[], numbers: number[]): number[] => {
+function nextIndexPair (target: number, prevIndexPair: number[], numbers: number[]): number[] {
   const currentSum = getSum(prevIndexPair, numbers)
   const pairChange = currentSum > target ? [0,-1] : [1,0]
   return pairChange.map((value, index) => value + prevIndexPair[index])
 }
 
-const isSolution = (target: number, currentIndexPair: number[], numbers: number[]): boolean =>
-  getSum(currentIndexPair, numbers) === target
+function isSolution (target: number, currentIndexPair: number[], numbers: number[]): boolean {
+  return getSum(currentIndexPair, numbers) === target
+}
 
-const getSum = (currentIndexPair: number[], numbers: number[]): number => {
+function getSum (currentIndexPair: number[], numbers: number[]): number {
   const bottomIndex = currentIndexPair[0]
   const topIndex = currentIndexPair[1]
   return numbers[bottomIndex] + numbers[topIndex]
