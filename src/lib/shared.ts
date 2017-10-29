@@ -8,7 +8,7 @@ const isEven = (num: number): boolean => num % 2 === 0
 
 const isOdd = (num: number): boolean => !isEven(num)
 
-const arrayEquals = (arr1: any[], arr2: any[]): boolean => {
+function arrayEquals (arr1: any[], arr2: any[]): boolean {
   if (arr1.length !== arr2.length) {
     return false
   }
@@ -21,7 +21,7 @@ const arrayEquals = (arr1: any[], arr2: any[]): boolean => {
   return true
 }
 
-const isPalindrome = (s: string): boolean => {
+function isPalindrome (s: string): boolean {
   const l = Math.floor(s.length / 2)
   for (let i = 0; i <= l; i++) {
     const firstCharIndex = i
@@ -36,7 +36,7 @@ const isPalindrome = (s: string): boolean => {
   return true
 }
 
-const reverseString = (s: string): string => {
+function reverseString (s: string): string {
   return s
     .split('')
     .reverse()
