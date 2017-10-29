@@ -22,7 +22,6 @@ const arrayEquals = (arr1: any[], arr2: any[]): boolean => {
 const isPalindrome = (s: string): boolean => {
   const firstChar = s.charAt(0)
   const lastChar = s.charAt(s.length - 1)
-  console.log(s, firstChar, lastChar)
   if (s.length === 1) {
     return true
   } else if (firstChar !== lastChar) {
