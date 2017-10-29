@@ -9,7 +9,13 @@ export namespace q7 {
   export function reverseInt (n: number): number {
     const nStr = '' + Math.abs(n)
     const reversedStr = reverseString(nStr)
-    const reversedInt = parseInt(reversedStr, 10)
-    return isNegative(n) ? -1 * reversedInt : reversedInt
+    const reversedInt = parseInt(reversedStr, 10) // parse int chops off leading zeros
+    const safeReversedInt = isOverflowed(reversedInt) ? 0 : reversedInt
+    return isNegative(n) ? -1 * safeReversedInt : safeReversedInt
+  }
+
+  // expects a positive number
+  function isOverflowed (n: number): boolean {
+    return n > Math.pow(2, 31)
   }
 }
