@@ -24,7 +24,7 @@
     "test-watch": "jest --watchAll",
     "clean": "rm -rf ./build",
     "lint": "tslint --project .",
-    "compile": "tsc -p ."
+    "compile": "npm run lint && tsc -p ."
   },
   "jest": {
     "moduleFileExtensions": [
