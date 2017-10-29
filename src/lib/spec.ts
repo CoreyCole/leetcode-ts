@@ -1,11 +1,16 @@
+import { LinkedList } from 'typescript-collections'
+
 import {
   isNegative,
   isPositive,
   isEven,
   isOdd,
   arrayEquals,
-  isPalindrome
+  isPalindrome,
+  reverseString,
+  makeLinkedListFromArray
 } from './shared'
+
 describe('shared library functions', () => {
   describe('isNegative', () => {
     it('should confirm -1 is negative', () => {
@@ -60,11 +65,49 @@ describe('shared library functions', () => {
     })
   })
   describe('isPalindrome', () => {
+    it('should confirm "a" is a palindrome', () => {
+      expect(isPalindrome('a')).toBe(true)
+    })
+    it('should confirm "aa" is a palindrome', () => {
+      expect(isPalindrome('aa')).toBe(true)
+    })
+    it('should confirm "az" is NOT a palindrome', () => {
+      expect(isPalindrome('az')).toBe(false)
+    })
     it('should confirm "racecar" is a palindrome', () => {
       expect(isPalindrome('racecar')).toBe(true)
     })
     it('should confirm "racecars" is NOT a palindrome', () => {
       expect(isPalindrome('racecars')).toBe(false)
+    })
+  })
+  describe('reverseString', () => {
+    it('should reverse a => a', () => {
+      expect(reverseString('a')).toBe('a')
+    })
+    it('should reverse aa => aa', () => {
+      expect(reverseString('aa')).toBe('aa')
+    })
+    it('should reverse aba => aba', () => {
+      expect(reverseString('aba')).toBe('aba')
+    })
+    it('should reverse abz => zba', () => {
+      expect(reverseString('abz')).toBe('zba')
+    })
+  })
+  describe('makeLinkedListFromArray', () => {
+    it('should make an empty LinkedList', () => {
+      expect(makeLinkedListFromArray([])).toBeInstanceOf(LinkedList)
+    })
+    it('should make a linked list of numbers', () => {
+      const ll = makeLinkedListFromArray([1,2,3])
+      expect(ll).toBeInstanceOf(LinkedList)
+      expect(ll.size()).toBe(3)
+    })
+    it('should make a linked list of string', () => {
+      const ll = makeLinkedListFromArray(['a','b','c','d'])
+      expect(ll).toBeInstanceOf(LinkedList)
+      expect(ll.size()).toBe(4)
     })
   })
 })

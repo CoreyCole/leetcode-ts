@@ -1,3 +1,5 @@
+import { LinkedList } from 'typescript-collections'
+
 const isNegative = (num: number): boolean => num < 0
 
 const isPositive = (num: number): boolean => num > 0
@@ -20,15 +22,33 @@ const arrayEquals = (arr1: any[], arr2: any[]): boolean => {
 }
 
 const isPalindrome = (s: string): boolean => {
-  const firstChar = s.charAt(0)
-  const lastChar = s.charAt(s.length - 1)
-  if (firstChar !== lastChar) {
-    return false
-  } else if (s.length === 1 || s.length === 2) {
-    return true
-  } else {
-    return isPalindrome(s.substring(1, s.length - 1))
+  const l = Math.floor(s.length / 2)
+  for (let i = 0; i <= l; i++) {
+    const firstCharIndex = i
+    const lastCharIndex = s.length - 1 - i
+    const diff = lastCharIndex - firstCharIndex
+    if (s[firstCharIndex] !== s[lastCharIndex]) {
+      return false
+    } else if (diff === 0 || diff === 1) {
+      return true
+    }
   }
+  return true
+}
+
+const reverseString = (s: string): string => {
+  return s
+    .split('')
+    .reverse()
+    .join('')
+}
+
+function makeLinkedListFromArray<T> (arr: T[]): LinkedList<T> {
+  const result = new LinkedList<T>()
+  for (const n of arr) {
+    result.add(n)
+  }
+  return result
 }
 
 export {
@@ -37,5 +57,7 @@ export {
   isEven,
   isOdd,
   arrayEquals,
-  isPalindrome
+  isPalindrome,
+  reverseString,
+  makeLinkedListFromArray
 }
