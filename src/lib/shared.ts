@@ -22,12 +22,12 @@ const arrayEquals = (arr1: any[], arr2: any[]): boolean => {
 const isPalindrome = (s: string): boolean => {
   const firstChar = s.charAt(0)
   const lastChar = s.charAt(s.length - 1)
-  if (s.length === 1) {
-    return true
-  } else if (firstChar !== lastChar) {
+  if (firstChar !== lastChar) {
     return false
+  } else if (s.length === 1 || s.length === 2) {
+    return true
   } else {
-    return s.length === 2 ? true : isPalindrome(s.substring(1, s.length - 1))
+    return isPalindrome(s.substring(1, s.length - 1))
   }
 }
 
