@@ -8,13 +8,13 @@
  */
 function longestSubstringNoRepeat (s: string): number {
   let longestSubstringLen = 0
-  let currentSet = new Set()
+  let currentSet = new Set<string>()
   for (const char of s) {
     if (!currentSet.has(char)) {
       currentSet.add(char)
     } else {
       longestSubstringLen = longestSubstringLen < currentSet.size ? currentSet.size : longestSubstringLen
-      currentSet = new Set(char)
+      currentSet = new Set<string>(char)
     }
   }
 
