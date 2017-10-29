@@ -5,47 +5,46 @@
  * @param numbers the array of integers to be searched through for a pair that sums to target
  * @return an array of size two with the array indices of the pair of number
  */
-
-// O(n^2)
-function twoSumBruteForce (target: number, numbers: number[]) {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 0; j < numbers.length; j++) {
-      if (numbers[i] + numbers[j] === target) {
-        return [i, j]
+export namespace q1 {
+  // O(n^2)
+  export function twoSumBruteForce (target: number, numbers: number[]) {
+    for (let i = 0; i < numbers.length; i++) {
+      for (let j = 0; j < numbers.length; j++) {
+        if (numbers[i] + numbers[j] === target) {
+          return [i, j]
+        }
       }
     }
+    return [-1,-1]
   }
-  return [-1,-1]
-}
 
-// O(n log n)
-function twoSum (target: number, numbers: number[]): number[] {
-  const sortedNumbers = numbers.sort()
+  // O(n log n)
+  export function twoSum (target: number, numbers: number[]): number[] {
+    const sortedNumbers = numbers.sort()
 
-  let currentIndexPair = [0, sortedNumbers.length - 1]
-  while (!isSolution(target, currentIndexPair, numbers)) {
-    currentIndexPair = nextIndexPair(target, currentIndexPair, numbers)
+    let currentIndexPair = [0, sortedNumbers.length - 1]
+    while (!isSolution(target, currentIndexPair, numbers)) {
+      currentIndexPair = nextIndexPair(target, currentIndexPair, numbers)
+    }
+    return currentIndexPair
   }
-  return currentIndexPair
-}
 
-function nextIndexPair (target: number, prevIndexPair: number[], numbers: number[]): number[] {
-  const currentSum = getSum(prevIndexPair, numbers)
-  const pairChange = currentSum > target ? [0,-1] : [1,0]
-  return pairChange.map((value, index) => value + prevIndexPair[index])
-}
+  function nextIndexPair (target: number, prevIndexPair: number[], numbers: number[]): number[] {
+    const currentSum = getSum(prevIndexPair, numbers)
+    const pairChange = currentSum > target ? [0,-1] : [1,0]
+    return pairChange.map((value, index) => value + prevIndexPair[index])
+  }
 
-function isSolution (target: number, currentIndexPair: number[], numbers: number[]): boolean {
-  return getSum(currentIndexPair, numbers) === target
-}
+  function isSolution (target: number, currentIndexPair: number[], numbers: number[]): boolean {
+    return getSum(currentIndexPair, numbers) === target
+  }
 
-function getSum (currentIndexPair: number[], numbers: number[]): number {
-  const bottomIndex = currentIndexPair[0]
-  const topIndex = currentIndexPair[1]
-  return numbers[bottomIndex] + numbers[topIndex]
+  export function getSum (currentIndexPair: number[], numbers: number[]): number {
+    const bottomIndex = currentIndexPair[0]
+    const topIndex = currentIndexPair[1]
+    return numbers[bottomIndex] + numbers[topIndex]
+  }
 }
-
-export { twoSumBruteForce, twoSum, getSum }
 
 /**
  * notes:
