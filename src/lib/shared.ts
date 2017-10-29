@@ -51,6 +51,14 @@ function makeLinkedListFromArray<T> (arr: T[]): LinkedList<T> {
   return result
 }
 
+function create2DArray<T> (rows): T[][] {
+  const arr = new Array<T[]>(rows)
+  for (let i = 0; i < rows; i++) {
+    arr[i] = new Array<T>()
+  }
+  return arr
+}
+
 export {
   isNegative,
   isPositive,
@@ -59,5 +67,6 @@ export {
   arrayEquals,
   isPalindrome,
   reverseString,
-  makeLinkedListFromArray
+  makeLinkedListFromArray,
+  create2DArray
 }

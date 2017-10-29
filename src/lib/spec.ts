@@ -8,7 +8,8 @@ import {
   arrayEquals,
   isPalindrome,
   reverseString,
-  makeLinkedListFromArray
+  makeLinkedListFromArray,
+  create2DArray
 } from './shared'
 
 describe('shared library functions', () => {
@@ -108,6 +109,18 @@ describe('shared library functions', () => {
       const ll = makeLinkedListFromArray(['a','b','c','d'])
       expect(ll).toBeInstanceOf(LinkedList)
       expect(ll.size()).toBe(4)
+    })
+  })
+  describe('create2DArray', () => {
+    it('should make a 2D array', () => {
+      const height = 3
+      const arr = create2DArray(height)
+      expect(arr).toBeDefined()
+      expect(arr.length).toBe(height)
+      for (const subArr of arr) {
+        expect(subArr).toBeDefined()
+        expect(subArr.length).toBe(0)
+      }
     })
   })
 })
