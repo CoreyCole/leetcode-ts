@@ -53,7 +53,7 @@ export namespace q6 {
     const numColumns = Math.ceil(sLen / zzLen)  // total number of columns (also number of ZigZags)
     let i = 0
     for (let zzIdx = 0; zzIdx < numColumns; zzIdx++) {  // ZigZag by ZigZag
-      for (let rowIdx = 0; rowIdx < numRows && length <= sLen; rowIdx++) { // go directly downward
+      for (let rowIdx = 0; rowIdx < numRows && length <= sLen; rowIdx++) {     // go directly downward
         charIndexBuffers[rowIdx].push(i)
         i++
       }
