@@ -55,6 +55,7 @@ export namespace q8 {
   //  - only 1 decimal
   //  - no characters
   //  - leftmost number
+  //  - zero if all zeros
   // returns empty string if no valid string found
   function getSafeStr (s: string): string {
     const trimmedStr = s.trim()
@@ -62,6 +63,9 @@ export namespace q8 {
     let i = isNegative ? 1 : 0
     while (trimmedStr[i] === '0') {
       i++
+    }
+    if (i === trimmedStr.length) {
+      return isNegative ? '-0' : '0'
     }
     const noLeadingZerosStr = trimmedStr.substring(i)
     let decimalCount = 0
